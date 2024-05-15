@@ -1,0 +1,88 @@
+CREATE OR REPLACE FUNCTION factorial_func (num IN NUMBER)
+RETURN NUMBER IS
+    factorial NUMBER := 1;
+BEGIN
+    IF num < 0 THEN
+        RETURN NULL; -- Factorial is not defined for negative numbers
+    ELSE
+        FOR i IN 1..num LOOP
+            factorial := factorial * i;
+        END LOOP;
+        
+        RETURN factorial;
+    END IF;
+END;
+/
+
+DECLARE
+    result NUMBER;
+BEGIN
+    result := factorial_func(5); -- Calculate factorial of 5
+    DBMS_OUTPUT.PUT_LINE('Factorial of 5 is: ' || result);
+END;
+/
+
+
+fibonaccci 
+
+
+declare 
+
+first number:= 0;
+second number:= 1; 
+temp number;
+
+n number :=5;
+i number;
+
+begin 
+
+for i in 2..n
+loop
+temp:=first+second;
+
+first:=second;
+second:=temp;
+
+dbms_output.put_line(temp);
+
+end loop;
+
+end;
+
+
+Armstrong
+
+
+declare
+-- declare variable n, s,r, len 
+-- and m of datatype number 
+	n number:=1634; 
+	s number:=0; 
+	r number; 
+	len number; 
+	m number; 
+
+begin
+	m := n; 
+
+	len := length(to_char(n)); 
+	
+	-- while loop till n>0 
+	while n>0 
+	loop 
+		r := mod(n , 10); 
+		s := s + power(r , len); 
+		n := trunc(n / 10); 
+	end loop; 
+	
+	if m = s 
+	then
+		dbms_output.put_line('yes'); 
+	else
+		dbms_output.put_line('no'); 
+	end if; 
+	
+end; 
+
+-- End program 
